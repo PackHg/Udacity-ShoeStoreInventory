@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".screens.InstructionFragment">
+
+    <data>
+        <variable
+            name="sharedViewModel"
+            type="com.example.shoestoreinventory.SharedViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- LinearLayout allows a vertical and linear layout of two textviews and a button  -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginEnd="@dimen/double_margin"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/instruction_textview_1"
+                style="@style/TextViewStyle"
+                android:layout_marginTop="@dimen/default_margin"
+                android:text="@string/instruction_text_1" />
+
+            <TextView
+                android:id="@+id/instruction_textview_2"
+                style="@style/TextViewStyle"
+                android:layout_marginTop="@dimen/default_margin"
+                android:text="@string/instruction_text_2" />
+
+            <Button
+                android:id="@+id/instruction_next_button"
+                style="@style/ButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/default_margin"
+                android:text="@string/Next"
+                android:onClick="@{() -> sharedViewModel.onInstructionNext()}"/>
+
+        </LinearLayout>
+    </ScrollView>
+</layout>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".screens.LoginFragment">
+
+    <data>
+        <variable
+            name="sharedViewModel"
+            type="com.example.shoestoreinventory.SharedViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- We have six views on this screen: two labels, two fields and two buttons.
+        ConstraintLayout allows the positioning of each view relative to the other views or the parent,
+        and it provides a flat hierarchical and responsive structure. -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/email_label_textview"
+                style="@style/LabelStyle"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginTop="@dimen/default_margin"
+                android:text="@string/email_label"
+                app:layout_constraintEnd_toStartOf="@+id/login_label_barrier"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/password_label_textview"
+                style="@style/LabelStyle"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/password_label"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/email_label_textview" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/login_label_barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="end"
+                app:constraint_referenced_ids="email_label_textview,password_label_textview"
+                tools:layout_editor_absoluteX="16dp" />
+
+            <EditText
+                android:id="@+id/email_address_edittext"
+                style="@style/EditTextSyle"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:autofillHints="email"
+                android:hint="@string/enter_email_address"
+                android:inputType="textEmailAddress"
+                android:text="@{sharedViewModel.anotherUser.email}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/login_label_barrier"
+                app:layout_constraintTop_toTopOf="@+id/email_label_textview" />
+
+            <EditText
+                android:id="@+id/password_edittext"
+                style="@style/EditTextSyle"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:autofillHints="password"
+                android:hint="@string/enter_password"
+                android:inputType="textPassword"
+                android:text="@{sharedViewModel.anotherUser.password}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/login_label_barrier"
+                app:layout_constraintTop_toTopOf="@+id/password_label_textview" />
+
+            <Button
+                android:id="@+id/login_button"
+                style="@style/ButtonStyle"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginTop="@dimen/double_margin"
+                android:text="@string/login"
+                android:onClick="@{() -> sharedViewModel.onLogin()}"
+                app:layout_constraintEnd_toStartOf="@+id/login_button_barrier"
+                app:layout_constraintStart_toEndOf="@+id/login_label_barrier"
+                app:layout_constraintTop_toBottomOf="@+id/password_edittext" />
+
+            <Button
+                android:id="@+id/signup_button"
+                style="@style/ButtonStyle"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginTop="@dimen/double_margin"
+                android:text="@string/sign_up"
+                android:onClick="@{() -> sharedViewModel.onSignup()}"
+                app:layout_constraintStart_toEndOf="@+id/login_label_barrier"
+                app:layout_constraintTop_toBottomOf="@+id/login_button" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/login_button_barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="end"
+                app:constraint_referenced_ids="login_button,signup_button" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

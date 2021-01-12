@@ -1,3 +1,58 @@
 <resources>
     <string name="app_name">Shoe Store Inventory</string>
+
+    <!-- Login screen -->
+    <string name="login_fragment_label">Login</string>
+    <string name="email_label">Email:</string>
+    <string name="password_label">Password:</string>
+    <string name="enter_email_address">Enter email address</string>
+    <string name="enter_password">Enter password</string>
+    <string name="login">Log in</string>
+    <string name="sign_up">Sign up</string>
+    <string name="to_add_a_shoe_item">To add a shoe item</string>
+    <string name="thanks_for_sign_in">Thanks for signing in</string>
+    <string name="email_or_password_incorrect">Your email or password is incorrect</string>
+    <string name="already_signed_up">You are already signed up</string>
+    <string name="thanks_for_sign_up">Thanks for signing up</string>
+
+    <!-- Welcome screen   -->
+    <string name="welcome_fragment_label">Welcome</string>
+    <string name="welcome_text_1">Welcome to the Shoe Store Inventory App.</string>
+    <string name="welcome_text_2">This app is a project of Udacity\'s Android Kotlin Developer Nanodegree.
+\n\nIn this project, we will build our first Android application with Kotlin.
+\n\nWe build a multi-screened Android application and implement a navigation file to take the user through the app.
+\n\nThis project consists of five screens:
+\n1. Login screen: Email and password fields and labels plus create and login buttons
+\n2. Welcome onboarding screen
+\n3. Instructions onboarding screen
+\n4. Shoe Listing screen
+\n5. Shoe Detail screen for adding a new shoe
+    </string>
+    <string name="Next">Next</string>
+
+    <!-- Instruction screen   -->
+    <string name="instruction_fragment_label">Instructions</string>
+    <string name="instruction_text_1">The next screen will display a list of shoes that may exist in the inventory.
+\n\nPressing the \"+\" button will bring you to the Detail where you can add another shoe to the inventory.
+    </string>
+    <string name="instruction_text_2">In the Detail screen, to add another shoe enter the shoe name, company, shoe size and description.
+\n\nPressing Save or Cancel button will bring you back to the listing screen.
+    </string>
+
+    <!-- List screen   -->
+    <string name="list_fragment_label">List of Shoes</string>
+    <string name="shoe_data_format">%1$s\nCompany: %2$s\nSize: %3$.1f\nDescription: %4$s\n</string>
+    <string name="logout">Logout</string>
+
+    <!-- Detail screen    -->
+    <string name="detail_fragment_label">Please Enter the Shoe Details</string>
+    <string name="shoe_name_label">Shoe Name:</string>
+    <string name="shoe_company_label">Company:</string>
+    <string name="shoe_size_label">Shoe Size:</string>
+    <string name="shoe_description_label">Description:</string>
+    <string name="enter_shoe_name">Enter Shoe Name</string>
+    <string name="enter_company_name">Enter Company Name</string>
+    <string name="enter_description">Enter Description</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
 </resources>
