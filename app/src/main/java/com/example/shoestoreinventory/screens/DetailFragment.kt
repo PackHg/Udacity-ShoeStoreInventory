@@ -25,7 +25,7 @@ class DetailFragment : Fragment() {
         binding.sharedViewModel = sharedViewModel
         binding.setLifecycleOwner(this)
 
-        // Save the shoe data entered by the user and navigate to the List screen upon click
+        // Save the shoe data entered by the user and navigate back to the List screen upon click
         // on the "Save" button
         sharedViewModel.eventDetailSave.observe(viewLifecycleOwner, { eventDetailSaveShoe ->
             if (eventDetailSaveShoe) {
@@ -40,16 +40,16 @@ class DetailFragment : Fragment() {
                 val description = binding.detailDescriptionEditext.text.toString()
                 sharedViewModel.addShoe(name, company, size, description)
                 sharedViewModel.onDetailSaveComplete()
-                findNavController().navigate(DetailFragmentDirections.actionDetailFragmentToListFragment())
+                findNavController().navigateUp()
                 hideKeyboard()
             }
         })
 
-        // Navigate to the List screen upon click on the "Cancel" button
+        // Navigate back to the List screen upon click on the "Cancel" button
         sharedViewModel.eventDetailCancel.observe(viewLifecycleOwner, Observer { eventDetailCancel ->
             if (eventDetailCancel) {
                 sharedViewModel.onDetailCancelComplete()
-                findNavController().navigate(DetailFragmentDirections.actionDetailFragmentToListFragment())
+                findNavController().navigateUp()
                 hideKeyboard()
             }
         })
